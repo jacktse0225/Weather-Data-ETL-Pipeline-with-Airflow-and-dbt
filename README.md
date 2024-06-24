@@ -4,6 +4,26 @@
 
 This project demonstrates a complete ETL data pipeline setup using Apache Airflow, dbt, PostgreSQL, and AWS S3. The pipeline extracts data from an API, stores it in AWS S3, loads it into a PostgreSQL database, and transforms it using dbt. The project showcases data engineering skills, particularly in managing data pipelines.
 
+## ETL Pipeline Tasks
+
+The ETL pipeline consists of three main tasks: data extraction, data import, and data transformation. Each task is managed by Apache Airflow using Python and Docker operators. Here’s a detailed explanation of each task:
+
+### Task 1: Data Extraction
+
+**Operator:** `PythonOperator`
+
+**Function:** `run_elt_script`
+
+**Description:** This task is responsible for extracting data from an external API and storing it in an AWS S3 bucket. The `run_elt_script` function runs a Python script (`data_extraction.py`) located in the `/opt/airflow/elt` directory. The script fetches data from the API and saves it to S3, making it available for subsequent steps in the pipeline.
+
+### Task 2: Data Import
+
+**Operator:** PythonOperator
+
+**Function:** run_data_import
+
+**Description:** This task imports the data stored in the AWS S3 bucket into a PostgreSQL database. The run_data_import function executes a Python script (data_import.py) located in the /opt/airflow/data_import directory. The script retrieves the data from S3 and loads it into the PostgreSQL database, preparing it for transformation.
+
 ## Technologies Used
 
 - **Apache Airflow**: For orchestrating the ETL pipeline.
