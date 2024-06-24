@@ -1,36 +1,98 @@
-# Data Engineering Project: Weather Data Pipeline
-
-This project demonstrates my data engineering skills, particularly in setting up and managing data pipelines using Docker, Apache Airflow, dbt, and PostgreSQL. The pipeline extracts weather data, transforms it using dbt, and loads it into a PostgreSQL database.
+# ETL Data Pipeline with Airflow, DBT, and AWS S3
 
 ## Project Overview
 
-The goal of this project is to build an end-to-end data pipeline that:
-1. Extracts weather data from an external API.
-2. Loads the raw data into a PostgreSQL database.
-3. Transforms the raw data using dbt (data build tool).
-4. Loads the transformed data back into the PostgreSQL database.
+This project demonstrates a complete ETL data pipeline setup using Apache Airflow, dbt, PostgreSQL, and AWS S3. The pipeline extracts data from an API, stores it in AWS S3, loads it into a PostgreSQL database, and transforms it using dbt. The project showcases data engineering skills, particularly in managing data pipelines.
 
-## Key Technologies
+## Technologies Used
 
-- **Docker:** Containerizes the entire application for easy deployment and environment consistency.
-- **Apache Airflow:** Orchestrates the ETL (Extract, Transform, Load) pipeline.
-- **dbt (data build tool):** Transforms the raw data into a more useful and structured format.
-- **PostgreSQL:** Serves as the database for storing raw and transformed data.
+- **Apache Airflow**: For orchestrating the ETL pipeline.
+- **dbt**: For transforming data.
+- **PostgreSQL**: As the database for storing data.
+- **AWS S3**: For storing extracted data from the API.
+- **Docker**: For containerizing the application and its dependencies.
 
 ## Project Structure
 
-your-project/
-│
-├── airflow/
-│ └── dags/
-│ └── elt_dag.py
-│
-├── dbt_project/
-│ ├── macros/
-│ ├── models/
-│ └── tests/
-│
-├── .env
-├── Dockerfile
-└── docker-compose.yml
+- `docker-compose.yml`: Defines the services and their configurations.
+- `Dockerfile`: Specifies the environment setup for Airflow.
+- `airflow/`: Contains Airflow DAGs and scripts.
+  - `dags/`
+  - `elt_script/`
+  - `data_import/`
+- `dbt_project/`: Contains dbt models, macros, and tests.
+- `.env`: Contains environment variables for sensitive information.
 
+## Getting Started
+
+### Prerequisites
+
+- Docker
+- Docker Compose
+- AWS account with S3 bucket
+
+### Installation
+
+1. **Clone the repository**:
+
+    ```bash
+    git clone https://github.com/yourusername/your-repository-name.git
+    cd your-repository-name
+    ```
+
+2. **Set up environment variables**:
+
+    Create a `.env` file with the following content:
+
+    ```env
+    POSTGRES_DB=mydatabase
+    POSTGRES_USER=user
+    POSTGRES_PASSWORD=password
+    AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgres+psycopg2://airflow:airflow@postgres/airflow
+    AIRFLOW__CORE__FERNET_KEY=your_fernet_key
+    AIRFLOW__WEBSERVER__DEFAULT__USER__USERNAME=airflow
+    AIRFLOW__WEBSERVER__DEFAULT__USER__PASSWORD=password
+    AIRFLOW__WWW_USER_USERNAME=airflow
+    AIRFLOW__WWW_USER_PASSWORD=password
+    AIRFLOW__WEBSERVER__SECRET_KEY=secret
+    API_KEY=your_api_key
+    AWS_ACCESS_KEY_ID=your_aws_access_key_id
+    AWS_SECRET_ACCESS_KEY=your_aws_secret_access_key
+    ```
+
+3. **Run Docker Compose**:
+
+    ```bash
+    docker-compose up --build
+    ```
+
+### Usage
+
+Once the services are up, you can access the Airflow webserver at `http://localhost:8080`. Use the following credentials:
+
+- **Username**: airflow
+- **Password**: password
+
+### Data Flow
+
+1. **Extract**: Data is extracted from an API and stored in AWS S3.
+2. **Load**: The extracted data stored in S3 is then imported into the PostgreSQL database.
+3. **Transform**: The data in PostgreSQL is transformed using dbt.
+
+### Scheduling
+
+The entire process, from extracting data from the API to storing it in S3, importing it into PostgreSQL, and transforming it using dbt, is scheduled and managed using Airflow.
+
+### Notes
+
+- Ensure your AWS credentials and S3 bucket configuration are correctly set in the `.env` file.
+- The PostgreSQL database will be initialized with a sample dataset.
+- Ensure your dbt profile matches the database configuration.
+
+## Contributing
+
+Feel free to open issues or submit pull requests for improvements.
+
+## License
+
+This project is licensed under the MIT License.
