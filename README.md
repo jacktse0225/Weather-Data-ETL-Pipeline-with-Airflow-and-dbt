@@ -42,22 +42,13 @@ This project demonstrates a complete ETL data pipeline setup using Apache Airflo
 
 2. **Set up environment variables**:
 
-    Create a `.env` file with the following content:
+    Create a `.env` file with the following content and the actual access key:
 
     ```env
-    POSTGRES_DB=mydatabase
-    POSTGRES_USER=user
-    POSTGRES_PASSWORD=password
-    AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgres+psycopg2://airflow:airflow@postgres/airflow
-    AIRFLOW__CORE__FERNET_KEY=your_fernet_key
-    AIRFLOW__WEBSERVER__DEFAULT__USER__USERNAME=airflow
-    AIRFLOW__WEBSERVER__DEFAULT__USER__PASSWORD=password
-    AIRFLOW__WWW_USER_USERNAME=airflow
-    AIRFLOW__WWW_USER_PASSWORD=password
-    AIRFLOW__WEBSERVER__SECRET_KEY=secret
-    API_KEY=your_api_key
-    AWS_ACCESS_KEY_ID=your_aws_access_key_id
-    AWS_SECRET_ACCESS_KEY=your_aws_secret_access_key
+    API_KEY=your_key
+    AWS_ACCESS_KEY_ID=your_key
+    AWS_SECRET_ACCESS_KEY=your_key
+    AIRFLOW__CORE__FERNET_KEY=your_key
     ```
 
 3. **Run Docker Compose**:
