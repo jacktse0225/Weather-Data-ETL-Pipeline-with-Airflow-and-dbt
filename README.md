@@ -81,7 +81,19 @@ The ETL pipeline consists of three main tasks: data extraction, data import, and
     AIRFLOW__CORE__FERNET_KEY=your_key
     ```
 
-3. **Run Docker Compose**:
+3. **Modify elt_dag.py**:
+
+    Change the directory paths for mounting in the elt_dag.py file to match your local setup.
+    Example:
+    python
+    Copy code
+   ```
+    Mount(source='C:/Users/username//etl_project/dbt_project',
+          target='/dbt', type='bind'),
+    Mount(source='C:/Users/username/.dbt',
+          target='/root/', type='bind')
+   ```
+5. **Run Docker Compose**:
 
     ```bash
     docker-compose up --build
