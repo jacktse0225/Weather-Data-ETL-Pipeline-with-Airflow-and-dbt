@@ -1,0 +1,42 @@
+version: 2
+
+models:
+  - name: weather
+    columns:
+      - name: id
+        description: "Auto-incrementing primary key"
+        tests:
+          - unique
+          - not_null
+      - name: name
+        description: "Unique identifier for each record"
+        tests:
+          - not_null
+      - name: city
+        description: "Name of the city"
+        tests:
+          - not_null
+      - name: region
+        description: "Region of the city"
+      - name: country
+        description: "Country of the city"
+      - name: lat
+        description: "Latitude of the city"
+        tests:
+          - not_null
+      - name: lon
+        description: "Longitude of the city"
+        tests:
+          - not_null
+      - name: tz_id
+        description: "Timezone ID of the city"
+        tests:
+          - not_null
+      - name: localtime_epoch
+        description: "Epoch time of local time"
+        tests:
+          - not_null
+      - name: localtime
+        description: "Local time of the city"
+        tests:
+          - not_null

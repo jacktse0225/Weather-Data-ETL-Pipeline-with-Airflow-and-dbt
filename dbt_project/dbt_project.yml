@@ -1,0 +1,16 @@
+name: 'dbt_project'  # Ensure this matches the profile name exactly
+version: '1.0.0'
+
+config-version: 2
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+profile: 'dbt_project'  # Add this line to specify the profile

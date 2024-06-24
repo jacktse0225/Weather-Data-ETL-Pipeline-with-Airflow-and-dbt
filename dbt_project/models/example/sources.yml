@@ -1,0 +1,11 @@
+
+version: 2
+
+sources:
+  - name: my_database
+    description: "test"
+    database: mydatabase
+    schema: public
+    tables:
+      - name: weather_data
+        description: "a test of weather data from London"
