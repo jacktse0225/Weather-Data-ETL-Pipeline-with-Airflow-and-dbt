@@ -20,7 +20,7 @@ The ETL pipeline consists of three main tasks: data extraction, data import, and
 
 **Function:** `run_elt_script`
 
-**Description:** This task is responsible for extracting data from an external API and storing it in an AWS S3 bucket. The `run_elt_script` function runs a Python script (`data_extraction.py`) located in the `/opt/airflow/elt` directory. The script fetches data from the API and saves it to S3, making it available for subsequent steps in the pipeline.
+**Description:** This task is responsible for extracting data from an external API: "WeatherAPI.com" and storing it in an AWS S3 bucket. The `run_elt_script` function runs a Python script (`data_extraction.py`) located in the `/opt/airflow/elt` directory. The script fetches data from the API and saves it to S3, making it available for subsequent steps in the pipeline.
 
 ### Task 2: Data Import
 
