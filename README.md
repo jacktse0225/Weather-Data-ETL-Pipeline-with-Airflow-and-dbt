@@ -21,16 +21,16 @@ The ETL pipeline consists of three main tasks: data extraction, data import, and
 
 ### Task 2: Data Import
 
-**Operator:** PythonOperator
+**Operator:** 'PythonOperator'
 
-**Function:** run_data_import
+**Function:** 'run_data_import'
 
 **Description:** This task imports the data stored in the AWS S3 bucket into a PostgreSQL database. The run_data_import function executes a Python script (data_import.py) located in the /opt/airflow/data_import directory. The script retrieves the data from S3 and loads it into the PostgreSQL database, preparing it for transformation.
 
 ### Task 3: Data Transformation
-**Operator:** DockerOperator
+**Operator:** 'DockerOperator'
 
-**Image:** ghcr.io/dbt-labs/dbt-postgres:1.4.7
+**Image:** 'ghcr.io/dbt-labs/dbt-postgres:1.4.7'
 
 **Description:** This task transforms the data in the PostgreSQL database using dbt (data build tool). The dbt_run task uses a Docker container to run dbt commands, specifying the project and profiles directories. dbt applies transformation models to the raw data, producing clean and structured data ready for analysis.
 
