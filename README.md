@@ -8,6 +8,9 @@ This project demonstrates a complete ETL data pipeline setup using Apache Airflo
 
 The ETL pipeline consists of three main tasks: data extraction, data import, and data transformation. Each task is managed by Apache Airflow using Python and Docker operators. Here’s a detailed explanation of each task:
 
+![airflow_homepage](https://github.com/jacktse0225/elt_project/assets/122648649/c06fff3c-98d4-4a49-8e14-016daf6d02f9)
+
+
 ![dbt_workflow_map](https://github.com/jacktse0225/elt_project/assets/122648649/e7251d2f-39a4-495d-a584-edb9bfa992ea)
 
 
