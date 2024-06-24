@@ -46,10 +46,10 @@ The ETL pipeline consists of three main tasks: data extraction, data import, and
 
 - `docker-compose.yml`: Defines the services and their configurations.
 - `Dockerfile`: Specifies the environment setup for Airflow.
-- `airflow/`: Contains Airflow DAGs and scripts.
+- `airflow/`: Contains Airflow DAGs.
   - `dags/`
-  - `elt_script/`
-  - `data_import/`
+- `elt_script/`
+- `data_import/`
 - `dbt_project/`: Contains dbt models, macros, and tests.
 - `.env`: Contains environment variables for sensitive information.
 
