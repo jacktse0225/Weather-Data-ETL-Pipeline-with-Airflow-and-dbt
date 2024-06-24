@@ -85,8 +85,6 @@ The ETL pipeline consists of three main tasks: data extraction, data import, and
 
     Change the directory paths for mounting in the elt_dag.py file to match your local setup.
     Example:
-    python
-    Copy code
    ```
     Mount(source='C:/Users/username//etl_project/dbt_project',
           target='/dbt', type='bind'),
