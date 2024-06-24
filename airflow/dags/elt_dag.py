@@ -63,9 +63,9 @@ t3 = DockerOperator(
     docker_url='unix://var/run/docker.sock',  # assuming Docker is running on the same host
     network_mode='elt_network',
     mounts=[
-        Mount(source='C:/Users/jackt/PycharmProjects/pythonProject/etl_project/dbt_project',
+        Mount(source='dbt_project_directory',
               target='/dbt', type='bind'),
-        Mount(source='C:/Users/jackt/.dbt',
+        Mount(source='.dbt directory',
               target='/root/', type='bind')
     ],
     mount_tmp_dir=False,
